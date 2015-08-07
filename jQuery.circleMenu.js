@@ -248,7 +248,7 @@
             'text-align': 'center',
             'line-height': self.options.item_diameter+'px',
             'position': 'absolute',
-            'z-index': self.options.zindex-1,
+            'z-index': self.options.zindex-self.options.depth-1,
             'opacity': ''
         });
         self.element.children('li:first-child').css({'z-index': self.options.zindex-self.options.depth});
