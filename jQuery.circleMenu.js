@@ -13,7 +13,8 @@
             step_out: 20,
             step_in: -20,
             trigger: 'hover',
-            transition_function: 'ease'
+            transition_function: 'ease',
+            zindex: 1000
         };
 
     function vendorPrefixes(items,prop,value){
@@ -227,7 +228,7 @@
         }
     };
     CircleMenu.prototype.initCss = function(){
-        var self = this, 
+        var self = this,
             $items;
 
         self._state = 'closed';
@@ -247,10 +248,10 @@
             'text-align': 'center',
             'line-height': self.options.item_diameter+'px',
             'position': 'absolute',
-            'z-index': 1,
+            'z-index': self.options.zindex-1,
             'opacity': ''
         });
-        self.element.children('li:first-child').css({'z-index': 1000-self.options.depth});
+        self.element.children('li:first-child').css({'z-index': self.options.zindex-self.options.depth});
         self.menu_items.css({
             top:0,
             left:0
